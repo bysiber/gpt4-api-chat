@@ -1,3 +1,6 @@
+import requests
+import json
+
 class gptSession():
     default_context = [
         {"role": "system", "content": "You are a helpful assistant."},
