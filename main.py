@@ -1,6 +1,7 @@
+from gpt_session import gptSession
+
 API_KEY = "YOUR API KEY HERE!"
 API_ENDPOINT = "https://api.openai.com/v1/chat/completions"
-
 
 if __name__ == "__main__":
     session = gptSession(API_KEY, API_ENDPOINT)
