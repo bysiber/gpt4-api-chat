@@ -5,13 +5,13 @@ class gptSession():
     default_context = [
         {"role": "system", "content": "You are a helpful assistant."},
     ]
-    def __init__(self,API_key, API_endpoint, model="gpt-4", temperature=1, max_tokens=None, max_content_len=7, debug_mode=True):
+    def __init__(self,API_key, API_endpoint, model="gpt-4", temperature=1, max_tokens=None, max_context_len=7, debug_mode=True):
         self.API_key = API_key
         self.API_endpoint = API_endpoint
         self.model = model
         self.temperature = temperature
         self.max_tokens = max_tokens
-        self.max_content_len = max_content_len
+        self.max_context_len = max_context_len
         self.debug_mode = debug_mode
 
         self.headers = {}
@@ -38,7 +38,7 @@ class gptSession():
 
 
     def add_context(self,message,type):
-        if len(self.context) > self.max_content_len:
+        if len(self.context) > self.max_context_len:
             if self.context[-1]["role"] == "user" and type == "assistant": last_msg = self.context.pop(-1)
                 
             self.context = gptSession.default_context
